@@ -1,0 +1,14 @@
+var express = require('express');
+const { timeStamp } = require('node:console');
+var router = express.Router();
+
+/* GET home page. */
+router.get('/', function(req, res, next) {
+  res.json({
+     title: "Express",
+     status: "Live", 
+     timestamp: new Date()
+    });
+});
+
+module.exports = router;
