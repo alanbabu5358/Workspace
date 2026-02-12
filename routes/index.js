@@ -2,6 +2,15 @@ var express = require('express');
 const { timeStamp } = require('node:console');
 var router = express.Router();
 const db = require('../config/database');
+const { title } = require('node:process');
+
+router.get('/', function(req, res, next) {
+  res.json({
+    title: "Express",
+    status: "Live",
+    timestamp: new Date()
+  });
+});
 
 /* GET db test route */
 router.get('/db-test', async function(req, res, next) {
@@ -27,3 +36,5 @@ router.get('/my-data', async function(req, res, next) {
     res.status(500).json({ error: error.message });
   }
 });
+
+module.exports = router;
